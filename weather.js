@@ -32,6 +32,18 @@ $(document).ready(function() {
 					//As I'm in the UK, this will use the Celsius result as a default. Will enable the temperature button later to switch between C and F.
 					$('#weather').text(weather);
 					
+					$('#celsius').on('click', function() {
+						$('#temp').text(celsius+'C');
+					});
+					//Temperature switch to Celsius
+					
+					
+					$('#fahrenheit').on('click', function() {
+						$('#temp').text(fahrenheit+'F');
+					});
+					//Temperature switch to Fahrenheit
+					
+					
 				},
 			});
 		};
