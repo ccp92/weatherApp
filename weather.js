@@ -17,18 +17,19 @@ $(document).ready(function() {
 					console.log(city);
 					//This is returning the correct City
 					var kelvin = data.main.temp;
-					//Raw temperature output is in Kelvin by default.
+					//Raw temperature output is in Kelvin by default. Needs to be converted.
 					console.log(kelvin+'K');
 					var celsius = Math.ceil((kelvin - 273.15));
 					console.log(celsius+'C');
 					var fahrenheit = Math.ceil((kelvin * 9/5 - 459.67));
 					console.log(fahrenheit+'F');
-					// Seems to be outputting a really high value. Need to figure out what's gone wrong here as the City is correct.
 					var weather = data.weather[0].main;
+					//There is a nested array within weather so need to specify that I'm after the index 0 array.
 					console.log(weather);
 					
 					$('#location').text(city);
 					$('#temp').text(celsius+'C');
+					//As I'm in the UK, this will use the Celsius result as a default. Will enable the temperature button later to switch between C and F.
 					$('#weather').text(weather);
 					
 				},
@@ -38,15 +39,11 @@ $(document).ready(function() {
 		getWeather();
 		
 	};
-	
-	//Use this api to convert to location: https://developers.google.com/maps/documentation/geocoding/start?csw=1
 		
 	function error(err) {
 		console.warn('ERROR: ' + err.code + '- '  + err.message);
 	}
 	
 	navigator.geolocation.getCurrentPosition(success, error);
-	
-
 	
 });
