@@ -43,10 +43,10 @@ $(document).ready(function() {
 					});
 					//Temperature switch to Fahrenheit
 					
-					if (weather = 'clear') {
-						$('#weather-image').attr('src','assets/32.png');
-					} else if (weather = 'haze'|'mist') {
-						$('weather-image').attr('src','assets/22.png');
+					if (weather = 'haze'||'mist') {
+						$('#weather-image').attr('src','assets/22.png');
+					} else if (weather = 'Clear') {
+						$('weather-image').attr('src','assets/32.png');
 					} else {
 						$('weather-image').attr('src','assets/21.png');
 					};
