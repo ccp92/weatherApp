@@ -23,6 +23,8 @@ $(document).ready(function() {
 					console.log(celsius+'C');
 					var fahrenheit = Math.ceil((kelvin * 9/5 - 459.67));
 					console.log(fahrenheit+'F');
+					var id = data.weather[0].id;
+					console.log(id);
 					var weather = data.weather[0].main;
 					//There is a nested array within weather so need to specify that I'm after the index 0 array.
 					console.log(weather);
@@ -43,10 +45,22 @@ $(document).ready(function() {
 					});
 					//Temperature switch to Fahrenheit
 					
-					if (weather = 'haze'||'mist') {
+					if (id = 800) {
 						$('#weather-image').attr('src','assets/22.png');
-					} else if (weather = 'Clear') {
+					} else if (id = 701||711||721||731||741||751||761||762||771||781) {
 						$('weather-image').attr('src','assets/32.png');
+					} else if (id = 200||201||202||210||211|212||221||230||231||232) {
+						$('#weather-image').attr('src','assets/00.png');
+					} else if (id = 300||301||302||310||311||312||313||314||321) {
+						$('weather-image').attr('src','assets/09.png');
+					} else if (id = 500||501||502||503||504||511|520||521||522||531) {
+						$('weather-image').attr('src','assets/12.png')
+					} else if (id = 600||601||602||611||612||615||616||620||621||622) {
+						$('weather-image').attr('src','assets/14.png');
+					} else if (id = 801||802||803||804) {
+						$('weather-image').attr('src','assets/26.png');
+					} else if (id = 951||952||953||954||955||956||957||958||959||960||961||962) {
+						$('weather-image').attr('src','assets/23.png');
 					} else {
 						$('weather-image').attr('src','assets/21.png');
 					};
