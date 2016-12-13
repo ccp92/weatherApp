@@ -13,8 +13,10 @@ $(document).ready(function() {
 			{
 				dataType: 'json',
 				success: function(data) {
+					$('#location-prompt').hide();
+					document.getElementById('weather-container').style.visibility = 'visible';
 					var city = data.name;
-					console.log(city);
+					console.log(data);
 					//This is returning the correct City
 					var kelvin = data.main.temp;
 					//Raw temperature output is in Kelvin by default. Needs to be converted.
@@ -23,6 +25,7 @@ $(document).ready(function() {
 					console.log(celsius+'C');
 					var fahrenheit = Math.ceil((kelvin * 9/5 - 459.67));
 					console.log(fahrenheit+'F');
+					//var weather = data.weather[0].id;
 					var weather = data.weather[0].main;
 					//There is a nested array within weather so need to specify that I'm after the index 0 array.
 					console.log(weather);
@@ -43,6 +46,22 @@ $(document).ready(function() {
 					});
 					//Temperature switch to Fahrenheit
 					
+					console.log(weather === 'Rain');
+					if (weather === 'Atmosphere') {
+						$('#weather-image').attr('src','assets/32.png');
+					} else if (weather === 'Thunderstorm') {
+						$('#weather-image').attr('src','assets/00.png');
+					} else if (weather == 'Drizzle') {
+						$('#weather-image').attr('src','assets/09.png');
+					} else if (weather === 'Rain') {
+						$('#weather-image').attr('src','assets/12.png');
+					} else if (weather === 'Snow') {
+						$('#weather-image').attr('src','assets/14.png');
+					} else if (weather === 'Clouds') {
+						$('#weather-image').attr('src','assets/26.png');
+					} else {
+						$('#weather-image').attr('src','assets/25.png');
+					};
 					
 				},
 			});
