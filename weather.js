@@ -30,6 +30,12 @@ $(document).ready(function() {
 					//There is a nested array within weather so need to specify that I'm after the index 0 array.
 					console.log(weather);
 					
+					var numberId = data.weather[0].id;
+					weatherId = numberId.toString();
+					weatherId = weatherId.charAt(0);
+					weatherId = Number(weatherId);
+					console.log(weatherId);
+					
 					$('#location').text(city);
 					$('#temp').text(celsius+'C');
 					//As I'm in the UK, this will use the Celsius result as a default. Will enable the temperature button later to switch between C and F.
@@ -46,18 +52,17 @@ $(document).ready(function() {
 					});
 					//Temperature switch to Fahrenheit
 					
-					console.log(weather === 'Rain');
-					if (weather === 'Atmosphere') {
+					if (weatherId === 7) {
 						$('#weather-image').attr('src','assets/32.png');
-					} else if (weather === 'Thunderstorm') {
+					} else if (weatherId === 2) {
 						$('#weather-image').attr('src','assets/00.png');
-					} else if (weather == 'Drizzle') {
+					} else if (weatherId === 3) {
 						$('#weather-image').attr('src','assets/09.png');
-					} else if (weather === 'Rain') {
+					} else if (weatherId === 5) {
 						$('#weather-image').attr('src','assets/12.png');
-					} else if (weather === 'Snow') {
+					} else if (weatherId === 6) {
 						$('#weather-image').attr('src','assets/14.png');
-					} else if (weather === 'Clouds') {
+					} else if (weatherId === 8) {
 						$('#weather-image').attr('src','assets/26.png');
 					} else {
 						$('#weather-image').attr('src','assets/25.png');
